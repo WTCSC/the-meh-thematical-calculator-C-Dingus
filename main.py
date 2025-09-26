@@ -18,8 +18,11 @@ def capture(keys):
             else:
                 final.append(key)
         else:
+            if key == "(":
+                opens += 1
             if key == ")":
                 opens -= 1
+           
             if opens > 0:
                 caught += key
             else:
@@ -105,8 +108,11 @@ def add_sub(keys):
                 read = True
             elif hold[key_num] == "-" and not read:
                 #add error handeling here
-                final.pop()
-                final.append(str(float(hold[key_num-1]) - float(hold[key_num+1])))
+                if len(final) > 0:
+                    final.pop()
+                    final.append(str(float(hold[key_num-1]) - float(hold[key_num+1])))
+                else:
+                    final.append(str(0-float(hold[key_num+1])))
                 skip = True
                 read = True
             else:
