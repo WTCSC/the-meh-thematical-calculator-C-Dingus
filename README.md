@@ -1,1 +1,16 @@
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/GDLJrpJJ)
+## Methematical Calculator
+
+### requirements
+python3
+
+### Install
+clone the git and run the main.py file
+
+### Usage
+Once you get to the input stage just input any thing with `( ) + - / * ^`
+
+### Things to note
+you can't multiply with parenthasis so yo need to use the multiplication operator * `(1+1)*2`
+
+### Example
+!(oh.png)

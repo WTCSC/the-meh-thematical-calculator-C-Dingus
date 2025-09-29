@@ -163,7 +163,7 @@ else:
         spell("\nplease leave now\n")
         i = input(">>")
         if i.lower() == "no" or i.lower() == "n":
-            spell("#$@&")
+            spell("#$@&\n")
         else:
-            spell("#$@& yes get out of here")
+            spell("#$@& yes get out of here\n")
             break
