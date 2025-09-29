@@ -13,4 +13,4 @@ Once you get to the input stage just input any thing with `( ) + - / * ^`
 you can't multiply with parenthasis so yo need to use the multiplication operator * `(1+1)*2`
 
 ### Example
-!(oh.png)
+!["ok"](oh.png)
