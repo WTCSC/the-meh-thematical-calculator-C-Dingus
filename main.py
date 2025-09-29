@@ -1,5 +1,14 @@
 import re
-        
+import time
+
+
+def spell(phrase):
+    for char in phrase:
+        print(char, end = "", flush = True)
+        time.sleep(0.02)
+    time.sleep(0.2)
+
+
 def synt(inp):
     operators = r"[-*+/^()]"
     return [item for item in re.split(f"({operators})", inp) if item != ""]
@@ -42,7 +51,6 @@ def exponents(keys):
         skip = False
         for key_num in range(0, len(hold)):
             if hold[key_num] == "^" and not read:
-                #add error handeling here
                 final.pop()
                 final.append(str(float(hold[key_num-1]) ** float(hold[key_num+1])))
                 skip = True
@@ -53,7 +61,6 @@ def exponents(keys):
                 else:
                     final.append(hold[key_num])
         if not read:
-            #final.pop()
             return final
         else: 
             hold = final
@@ -68,13 +75,11 @@ def mult_div(keys):
         skip = False
         for key_num in range(0, len(hold)):
             if hold[key_num] == "*" and not read:
-                #add error handeling here
                 final.pop()
                 final.append(str(float(hold[key_num-1]) * float(hold[key_num+1])))
                 skip = True
                 read = True
             elif hold[key_num] == "/" and not read:
-                #add error handeling here
                 final.pop()
                 final.append(str(float(hold[key_num-1]) / float(hold[key_num+1])))
                 skip = True
@@ -85,7 +90,6 @@ def mult_div(keys):
                 else:
                     final.append(hold[key_num])
         if not read:
-            #final.pop()
             return final
         else: 
             hold = final
@@ -101,13 +105,11 @@ def add_sub(keys):
         skip = False
         for key_num in range(0, len(hold)):
             if hold[key_num] == "+" and not read:
-                #add error handeling here
                 final.pop()
                 final.append(str(float(hold[key_num-1]) + float(hold[key_num+1])))
                 skip = True
                 read = True
             elif hold[key_num] == "-" and not read:
-                #add error handeling here
                 if len(final) > 0:
                     final.pop()
                     final.append(str(float(hold[key_num-1]) - float(hold[key_num+1])))
@@ -121,7 +123,6 @@ def add_sub(keys):
                 else:
                     final.append(hold[key_num])
         if not read:
-            #final.pop()
             return final
         else: 
             hold = final
@@ -139,8 +140,30 @@ def read(inp):
     return float(keys[0])
 
 
+spell("Can't you do this yourself? \nc'mon please I don't want to deal with your stupid math questions (leave yes/no)\n>>")
+i = input()
+if i.lower() == "y" or i.lower() == "yes":
+    spell("thank you")
+else:
+    while True:
+        spell("fine what is your dumb math problem \n>>")
+        i = input()
+        try:
+            q = read(i)
+            print(q)
+        except Exception as e:
+            match e:
+                case ZeroDivisionError():
+                    spell("well done you divided by zero")
+                case ValueError():
+                    spell("why did you decide to input a letter?")
+                case _:
+                    print("what the hell did you do?")
 
-i = input(">>")
-
-q = read(i)
-print(q)
+        spell("\nplease leave now\n")
+        i = input(">>")
+        if i.lower() == "no" or i.lower() == "n":
+            spell("#$@&")
+        else:
+            spell("#$@& yes get out of here")
+            break
